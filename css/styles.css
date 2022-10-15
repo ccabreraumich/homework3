@@ -22,6 +22,7 @@ h1{
 h2{
   font-size: 32px;
   line-height: 1.5;
+  text-align: center;
 }
 
 nav li{
@@ -71,12 +72,12 @@ nav a:hover{
 link to the exact top of the page.*/
 
 /* QUESTION is this above (^) asking me to make the content link visible again?*/
-/* .skip a{
+.skip a{
   position: absolute;
   left: 0;
-  top: 0;
+  top: -50px;
   margin-left: 0;
-} */
+}
 
 /*Your code here*/
 /*Add the selector and code to put a 2px black
@@ -90,9 +91,10 @@ a:focus {
   /* See documentation for mobile view */
   display: grid;
   
-  /* QUESTIONS */
-  width: 65vw;
-
+  /* QUESTION: I could not figure out how to get the container to re-adjust to smaller width size,
+   so I did trial and error to determine that 65% of viewport width looked closest to final screenshots.
+   Is this right? */
+  width: 65vh;
   grid-template-columns: 1fr 5fr 1fr;
   row-gap: 30px;
 }
@@ -113,8 +115,7 @@ nav{
   /*Your code here*/
   /*Span the top row*/
   /* grid-row-start: 1; */
-  grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column: 1 / -1;
 }
 
 
@@ -123,17 +124,17 @@ header{
   background-attachment: fixed; /* Parallax effect */
   background-position: center;  /* Parallax effect */
   background-repeat: no-repeat; /* Parallax effect */
-  background-size: cover;       /* Parallax effect */
+  background-size: cover;        /* Parallax effect */
   color: white;
   height: 400px;                /* Parallax effect */
+  
   /* Your code here */
   /* Set background-image to header.jpg in the images folder */
   background-image: url("../images/header.jpg");
+  
   /* Span one row */
   
-  /* QUESTION: Why is my header and navigation missing when I expand to 900px?" */
-  grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column: 1 / -1;
 }
 
 header p{
@@ -151,10 +152,6 @@ header p{
 .grid > div {
   overflow: hidden;
 
-  /* QUESTION, this statement in homework: 
-  "Check that by making sure there is always a gap between the rows.",
-  does that mean I need to add gap?? this isn't working? */
-  row-gap: 30px; 
 
   
 }
@@ -162,10 +159,13 @@ header p{
 .about, .method, .clients, .contact{
   /*Your code here */
   /* See documentation for mobile view */
-  grid-column: 2;
+  grid-column: 1/3;
+  width: 50%;
 }
 
-
+img {
+  max-width: 100%;
+}
 
 .about-image, .method-image, .clients-image, .contact-image{
    /*Your code here */
@@ -173,36 +173,31 @@ header p{
    
    grid-column: 1 / span 3;
    max-height: 500px;
-   width: 100%;
-
-   /* QUESTION why can't I get the images to fit into the grid so that they're not so large?*/
-
-   object-fit: fill;
 
 }
 
 .about, .about-image{
   /*Your code here */
   /* See documentation for mobile view */
-  grid-row: 3
+  grid-row: 3;
 }
 
 .method, .method-image{
   /*Your code here */
   /* See documentation for mobile view */
-  grid-row: 4
+  grid-row: 4;
 }
 
 .clients, .clients-image{
   /*Your code here */
   /* See documentation for mobile view */
-  grid-row: 5
+  grid-row: 5;
 }
 
 .contact, .contact-image{
   /*Your code here */
   /* See documentation for mobile view */
-  grid-row: 6
+  grid-row: 6;
 }
 
 .text-block{
@@ -223,33 +218,33 @@ header p{
   .container{
     /*Your code here */
     /* See documentation for desktop view */
-    
-    
     display: grid;
     min-width: 800px;
-    /* width: 100%; */
-    
-    /* QUESTION: Whey when I inspect the page, I do not see 5 columns?*/
+    width: 100%;
+
     grid-template-columns: 50px auto 500px auto 50px;
     grid-template-rows: 70px repeat(5, 500px) 100px;
+    row-gap: 30px;
   }
 
   nav{
     background-color: #ddd;
     text-align: right;
     padding: 35px 0px;
-    grid-column: 2;
+    grid-column: 1/5;
   }
 
    .about, .clients, .method-image, .contact-image {
     /*Your code here */
     /* See documentation for desktop view */
+    /* Question: why is this not expanding fully from column 3 to 5? */
     grid-column: 3 / span 2;
   }
 
   .method, .contact, .about-image, .clients-image {
     /*Your code here */
     /* See documentation for desktop view */
+    /* Question: why is this not expanding fully from column 2 to 5? */
     grid-column: 2 / span 2;
   }
 }  /*End the media query*/
