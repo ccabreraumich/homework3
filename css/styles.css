@@ -112,7 +112,6 @@ nav{
   text-align: left;
   /*Your code here*/
   /*Span the top row*/
-  /* grid-row-start: 1; */
   grid-column: 1 / -1;
 }
 
