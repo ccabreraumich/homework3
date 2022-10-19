@@ -36,7 +36,7 @@ nav a{
 }
 
 nav a:hover{
-  text-decoration: underline;
+  text-decoration: underline wavy;
 }
 
 .skip a{
@@ -82,6 +82,10 @@ link to the exact top of the page.*/
 border around all elements in focus.*/
 a:focus {
   border: solid black 2px;
+}
+
+a:hover {
+  text-decoration: underline wavy;
 }
 
 .container{
@@ -162,7 +166,7 @@ header p{
 
 img {
   max-width: 100%;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 .about-image, .method-image, .clients-image, .contact-image{
